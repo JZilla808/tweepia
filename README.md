@@ -5,7 +5,7 @@ Welcome to Tweepia, a feature-rich microblogging platform developed using SolidJ
 Features
 
 User Authentication: Implementing a secure user registration and login system with Firebase.
-Real-time microblogging: Users can post, like, share, and comment on posts (Tweeps).
+Real-time microblogging: Users can post and comment on posts (Tweeps).
 Dynamic routing: A modular routing system using @solidjs/router.
 Responsive UI: Built with TailwindCSS, delivering an excellent user experience on all devices.
 Image Upload: Users can upload images with their posts.
