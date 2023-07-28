@@ -5,6 +5,7 @@ import MainLayout from "../components/layouts/Main";
 import PaginatedTweeps from "../components/tweeps/PaginatedTweeps";
 import Button from "../components/utils/Button";
 import Messenger from "../components/utils/Messenger";
+import { usePersistence } from "../context/persistence";
 import useTweeps from "../hooks/useTweeps";
 
 const HomeScreen: Component = () => {

@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
+    "@types/lodash": "^4.14.196",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
     "solid-devtools": "^0.27.3",
@@ -23,6 +24,7 @@
     "@solidjs/router": "^0.8.2",
     "dotenv": "^16.3.1",
     "firebase": "^10.0.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "solid-icons": "^1.0.11",
     "solid-js": "^1.7.6"

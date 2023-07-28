@@ -1,20 +1,22 @@
 import { FaSolidArrowLeft } from "solid-icons/fa";
-import { createEffect, createResource, onMount, Show } from "solid-js";
+import { createEffect, createResource, Show } from "solid-js";
 
 import { useParams } from "@solidjs/router";
 
 import { getTweepById } from "../api/tweep";
 import MainLayout from "../components/layouts/Main";
+import PaginatedTweeps from "../components/tweeps/PaginatedTweeps";
 import TweepPost from "../components/tweeps/TweepPost";
 import { CenteredDataLoader } from "../components/utils/DataLoader";
 import Messenger from "../components/utils/Messenger";
+import { usePersistence } from "../context/persistence";
 import useSubtweeps from "../hooks/useSubtweeps";
-import { User } from "../types/User";
-import PaginatedTweeps from "../components/tweeps/PaginatedTweeps";
 import { Tweep } from "../types/Tweep";
+import { User } from "../types/User";
 
 const TweepDetail = () => {
   const params = useParams();
+  const persistence = usePersistence()!;
 
   const onTweepLoaded = (tweep: Tweep) => {
     resetPagination();
@@ -22,7 +24,14 @@ const TweepDetail = () => {
   };
 
   const [data, { mutate, refetch }] = createResource(async () => {
-    const tweep = await getTweepById(params.id, params.uid);
+    const tweep = await persistence.useRevalidate(
+      `selectedTweep-${params.id}`,
+      () => getTweepById(params.id, params.uid),
+      (latestTweep) => {
+        mutate(latestTweep);
+      }
+    );
+
     onTweepLoaded(tweep);
     return tweep;
   });
@@ -37,11 +46,13 @@ const TweepDetail = () => {
 
   const onTweepAdded = (newTweep?: Tweep) => {
     const tweep = data()!;
-
-    mutate({
+    const tweepWithNewCount = {
       ...tweep,
       subtweepsCount: tweep.subtweepsCount + 1,
-    });
+    };
+
+    mutate(tweepWithNewCount);
+    persistence.setValue(`selectedTweep-${tweep.id}`, tweepWithNewCount);
 
     addTweep(newTweep);
   };

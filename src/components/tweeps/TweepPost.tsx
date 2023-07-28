@@ -8,6 +8,7 @@ import { useNavigate } from "@solidjs/router";
 
 import { Tweep } from "../../types/Tweep";
 import { User } from "../../types/User";
+import { usePersistence } from "../../context/persistence";
 
 type Props = {
   tweep: Tweep;
@@ -15,6 +16,8 @@ type Props = {
 
 const TweepPost: Component<Props> = (props) => {
   const navigate = useNavigate();
+  const persistence = usePersistence()!;
+
   const tweep = () => props.tweep;
   const user = () => tweep().user as User;
 
@@ -32,7 +35,10 @@ const TweepPost: Component<Props> = (props) => {
           </div>
         </div>
         <article
-          onClick={() => navigate(`/${tweep().uid}/tweep/${tweep().id}`)}
+          onClick={() => {
+            persistence.setValue(`selectedTweep-${tweep().id}`, tweep());
+            navigate(`/${tweep().uid}/tweep/${tweep().id}`);
+          }}
           class="flex-it flex-grow flex-shrink cursor-pointer"
         >
           <div class="flex-it justify-center flex-grow mb-1">

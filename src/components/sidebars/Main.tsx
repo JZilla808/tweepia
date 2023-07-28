@@ -27,9 +27,9 @@ const MainSidebar: Component<Props> = (props) => {
           <div class="flex-it h-full xl:w-80 w-20 overflow-y-auto px-3 justify-between">
             <div class="flex-it items-start">
               <div class="p-3 pt-4 xl:pb-3 pb-0 xl:text-2xl text-sm font-bold transition duration-200 hover:opacity-80">
-                <a href="#">
+                <A href="/">
                   <h1>Tweepia</h1>
-                </a>
+                </A>
               </div>
               <div class="my-1 w-full flex-it">
                 <nav class="flex-it items-start">

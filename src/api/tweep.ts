@@ -147,7 +147,7 @@ const subscribeToTweeps = (
         const tweep = doc.data() as Tweep;
         const userSnap = await getDoc(tweep.user as DocumentReference);
         tweep.user = userSnap.data() as User;
-        return { ...tweep, id: doc.id };
+        return { ...tweep, id: doc.id, lookup: doc.ref.path };
       })
     );
 
