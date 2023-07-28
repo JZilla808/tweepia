@@ -15,6 +15,7 @@ Real-time updates: Changes are reflected in real-time, thanks to Firebase's real
 Code Quality: Thoroughly typed with TypeScript to prevent bugs and improve developer experience.
 State Management: Effective state management strategy with solid-js store.
 Pagination: Implemented pagination logic to load data as user scrolls.
+Data persistence and revalidation: Added feature to retain user data and revalidate to ensure data integrity. Developed from scratch without the reliance on third-party libraries.
 Modular structure: Codebase is organized in a modular way, ensuring code maintainability and extensibility.
 
 Tech Stack
