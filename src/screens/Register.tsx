@@ -18,7 +18,7 @@ const RegisterScreen: Component = () => {
     fullName: "",
     nickName: "",
     email: "",
-    avatar: "",
+    avatar: "https://thrangra.sirv.com/Avatar2.png",
     password: "",
     passwordConfirmation: "",
   });
@@ -92,11 +92,11 @@ const RegisterScreen: Component = () => {
 
                   <div class="flex-it py-2">
                     <label class="block text-sm font-medium text-gray-700">
-                      Avatar
+                      Avatar (Optional)
                     </label>
                     <input
                       onInput={handleInput}
-                      use:validate={[requiredValidator]}
+                      // use:validate={[requiredValidator]}
                       type="text"
                       name="avatar"
                       id="avatar"
