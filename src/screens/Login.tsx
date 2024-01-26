@@ -18,6 +18,14 @@ const LoginScreen: Component = () => {
     authUser(form);
   };
 
+  // Function to handle guest login
+  const handleGuestLogin = () => {
+    authUser({
+      email: "guest88@gmail.com",
+      password: "hiwelcome599",
+    });
+  };
+
   return (
     <div class="flex-it justify-center items-center h-full">
       <div class="text-white text-4xl font-bold">Tweepia - Get In</div>
@@ -73,6 +81,16 @@ const LoginScreen: Component = () => {
                   inline-flex focus:ring-0 disabled:cursor-not-allowed disabled:bg-gray-400 justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm  focus:outline-none focus:ring-offset-2"
                 >
                   Login
+                </button>
+                {/* Guest Login Button */}
+                <button
+                  disabled={loading()}
+                  onClick={handleGuestLogin}
+                  type="button"
+                  class="bg-green-400 hover:bg-green-500
+                  inline-flex focus:ring-0 disabled:cursor-not-allowed disabled:bg-gray-400 justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm  focus:outline-none focus:ring-offset-2 mt-4"
+                >
+                  Guest Login
                 </button>
               </div>
             </div>

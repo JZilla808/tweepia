@@ -47,7 +47,7 @@ const PaginatedTweeps: Component<Props> = (props) => {
 
       <Show when={!props.loading && props.pages[1]?.tweeps?.length === 0}>
         <div class="flex-it">
-          <div class="bg-yellow-400 mt-6 p-2 rounded-lg mx-4">
+          <div class="bg-yellow-400 mt-6 p-2 rounded-lg mx-4 text-center">
             No new tweeps! create a new one!
           </div>
         </div>
